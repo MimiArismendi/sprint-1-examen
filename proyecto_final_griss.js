@@ -9,17 +9,23 @@ function agregarEstudiante() {
     // TO DO: Preguntar al usuario por el nombre, puntos técnicos y puntos de HSE de un estudiante
     // Hint: El estudiante debe ser agregado a la lista de estudiantes
     // TO DO: Retornar el estudiante recientemente creado
-    var nombre = prompt("Ingresa el nombre").toUpperCase();
-    var puntosTecnicos = parseInt(prompt("Puntos Tecnicos"));
-    var puntosHse = parseInt(prompt("Puntos HSE"));
-    var estudiante = {
-      nombre : nombre,
-      puntosTecnicos : puntosTecnicos,
-      puntosHse : puntosHse
-    };
-    estudiantes.push(estudiante);
-    return estudiante;
+      var nombre = prompt("Ingresa el nombre de la estudiante");
+      var puntosTecnicos = prompt("Puntaje Tecnico");
+      var puntosHse = prompt("Puntaje HSE");
+      /*var estudiante = {};
+      estudiante.nombre = nombre;
+      estudiante.puntosTecnicos = puntosTecnicos;
+      estudiante.puntosHse = puntosHse;*/
 
+      var estudiante = {
+
+        nombre : nombre,
+        puntosTecnicos : puntosTecnicos,
+        puntosHse : puntosHse
+
+      };
+      estudiantes.push(estudiante);
+      return estudiante;
 }
 
 function mostrar(estudiante) {
@@ -42,24 +48,23 @@ function mostrar(estudiante) {
 function mostrarLista(estudiantes) {
     // TO DO: Iterar la lista del estudiantes para devolverlos en el formato que usa la función mostrar(estudiante)
     // Retornar el template de todos los estudiantes
-    var lista = ""; //esto es para concatenar los objetos dentro del array
-    for(var i = 0; i < estudiantes.length; i++){
+    var lista = "";
+    //console.log(estudiantes);
+    for(var i = 0 ; i < estudiantes.length; i++){
       lista += mostrar(estudiantes[i]);
     }
-      return lista;
+    return lista;
 }
 
 function buscar(nombre, estudiantes) {
     // TO DO: Buscar el nombre en la lista de estudiantes que se recibe por parámetros
     // Retornar el objeto del estudiante buscado
     // Nota: NO IMPORTA SI EL USUARIO ESCRIBE EL NOMBRE EN MAYÚSCULAS O MINÚSCULAS
-    nombre = nombre.toUpperCase();
+    var nombre = nombre.toLowerCase();
     var buscador = [];
     for(var i = 0; i < estudiantes.length; i++){
       if(nombre == estudiantes[i].nombre){
-
         buscador.push(estudiantes[i]);
-        console.log(buscador);
       }
     }
     return buscador;
@@ -71,6 +76,7 @@ function topTecnico(estudiantes) {
       return b.puntosTecnicos - a.puntosTecnicos;
     });
     return ordenadoTecnico;
+
 }
 
 function topHSE(estudiantes) {

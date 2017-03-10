@@ -44,7 +44,7 @@ function mostrarLista(estudiantes) {
     // Retornar el template de todos los estudiantes
     var lista = ""; //esto es para concatenar los objetos dentro del array
     for(var i = 0; i < estudiantes.length; i++){
-      lista += mostrar(estudiantes[i]);
+      lista += estudiantes[i];
     }
       return lista;
 }
@@ -53,22 +53,13 @@ function buscar(nombre, estudiantes) {
     // TO DO: Buscar el nombre en la lista de estudiantes que se recibe por parámetros
     // Retornar el objeto del estudiante buscado
     // Nota: NO IMPORTA SI EL USUARIO ESCRIBE EL NOMBRE EN MAYÚSCULAS O MINÚSCULAS
-    nombre = nombre.toUpperCase();
-    var buscador = [];
-    for(var i = 0; i < estudiantes.length; i++){
-      if(nombre == estudiantes[i].nombre){
 
-        buscador.push(estudiantes[i]);
-        console.log(buscador);
-      }
-    }
-    return buscador;
 }
 
 function topTecnico(estudiantes) {
     // TO DO: Retornar el arreglo de estudiantes ordenado por puntaje técnico de mayor a menor
     var ordenadoTecnico = estudiantes.sort(function(a,b){
-      return b.puntosTecnicos - a.puntosTecnicos;
+      return a.puntosTecnicos - b.puntosTecnicos;
     });
     return ordenadoTecnico;
 }
@@ -76,7 +67,7 @@ function topTecnico(estudiantes) {
 function topHSE(estudiantes) {
     // TO DO: Retornar el arreglo de estudiantes ordenado por puntaje de HSE de mayor a menor
     var ordenadoHse = estudiantes.sort(function(a,b){
-      return b.puntosHse - a.puntosHse;
+      return a.puntosHse - b.puntosHse;
     });
     return ordenadoHse;
 }
